@@ -1,0 +1,24 @@
+{% extends "jobs/home.html" %}
+{% block content %}
+<main role="main">
+    <div class="container">
+        <h1 class="text-center pt-3">Blog</h1>
+        <br>
+        <br>
+        <h2>Latest posts</h2>
+        <hr>
+        {% for blog in blogs.all %}
+        <div class="card" style="width: 45rem;">
+            <img class="card-img-top img-fluid" src="{{ blog.image.url }}" alt="Card image cap">
+            <div class="card-body">
+                <a href="{% url 'detail' blog.id %}"><h5 class="card-title">{{ blog.title }}</h5></a>
+                <p>{{ blog.pubdatepretty }}</p>
+                <p>{{ blog.summary }}</p>
+
+            </div>
+        </div>
+        <br>
+        {% endfor %}
+    </div>
+</main>
+{% endblock %}

@@ -7,4 +7,11 @@ class Blog(models.Model):
     description = models.TextField()
     image = models.ImageField(upload_to='images/')
 
+    def summary(self):
+        return self.description[:100] + "......."
 
+    def pubdatepretty(self):
+        return self.pubdate.strftime('%b %e, %Y')
+
+    def __str__(self):
+        return self.title
